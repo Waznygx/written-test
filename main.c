@@ -72,71 +72,110 @@
 ////该函数有一个整型参数并返回一个整型数
 //int (*a[10])(int*, int*);
 
-// 4.十进制23，转换成十六进制
-//int hex(int yu[])
+//// 4.十进制23，转换成十六进制
+//#define max 1000
+//char check_num(int num)
 //{
-//	
-//	return 0;
+//	if (num >=0 && num <=9)
+//	{
+//		return '0' + num;
+//	}
+//	if (num >=10 && num <= 15)
+//	{
+//		return 'A' + num - 10;//先计算“num-10”
+//		//假设num=11，'A' + 1时，字符’A’被转换为它的ASCII码65，然后加上1，得到66。
+//		//然后，这个数字被转换回字符，得到字符’B’
+//	}
 //}
-//void bin(int num)
+//void turn(int num)
 //{
 //	int chu = num;
-//	int yu[100] = {0};
+//	int yu[max] = { 0 };
 //	int i = 0;
+//	int j = 0;
 //	while (chu)
 //	{
-//		yu[i] = chu % 2;
-//		chu = chu / 2;
+//		yu[i] = chu % 16;
+//		chu = chu / 16;
 //		i++;
-//		if (yu[i] == 0 && chu == 0)
-//		{
-//			break;
-//		}
 //	}
-//	hex(yu[i]);
+//	for (j = i - 1; j >= 0; j--)
+//	{
+//		printf("%c",check_num(yu[j]));
+//	}
 //}
 //int main()
 //{
 //	int num = 23;
-//	printf("机器实现=%x\n", num);
-//	bin(num);
-//	//printf("手动实现=%d", );
+//	turn(num);
 //	return 0;
-//} 
+//}
 
-#include <stdio.h>
+//5.if(a==10)和if(10==a)两条语句是否都正确
+//正确，用前者。
 
-int hex(int yu[], int size)
-{
-    int sum = 0;
-    for (int i = 0; i < size; i++)
-    {
-        sum = sum * 2 + yu[i];
-    }
-    return sum;
-}
-
-void bin(int num)
-{
-    int chu = num;
-    int yu[100] = { 0 };
-    int i = 0;
-    while (chu)
-    {
-        yu[i] = chu % 2;
-        chu = chu / 2;
-        i++;
-        if (yu[i] == 0 && chu == 0)
-        {
-            break;
-        }
-    }
-    printf("手动实现=%x\n", hex(yu, i));
-}
-
+//6.
+int a[10]={1,2,3,4,5,6,7,8,9,10};
+int* p = &a[1];
+//p[6] = ;
+//8
 int main()
 {
-    int num = 23;
-    printf("机器实现=%x\n", num);
-    bin(num);
+	int a[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int* p = &a[1];
+	printf("%d", p[6]);
+	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//char get_hex_char(int num) 
+//{
+//	if (num >= 0 && num <= 9) 
+//	{
+//		return '0' + num;
+//	}
+//	else 
+//	{
+//		return 'A' + num - 10;//先计算“num-10”
+//		//假设num=11，'A' + 1时，实际上是在做一个数学运算。首先，字符’A’被转换为它的ASCII码65，然后加上1，得到66。
+//		//然后，这个数字被转换回字符，得到字符’B’
+//	}
+//}
+//void turn(int num)
+//{
+//	int chu = num;
+//	int yu[100] = { 0 };
+//	int i = 0;
+//	int j = 0;
+//	while (chu)
+//	{
+//		yu[i] = chu % 16;
+//		chu = chu / 16;
+//		i++;
+//	}
+//	for (j = i - 1; j >= 0; j--) 
+//	{
+//		printf("%c", get_hex_char(yu[j]));
+//	}
+//	printf("\n");
+//}
+//int main()
+//{
+//	int num = 0;
+//	scanf("%d", &num);
+//	printf("%x\n", num);
+//	turn(num);
+//	return 0;
+//}
